@@ -4,6 +4,7 @@ import type { FormEvent } from "react";
 import { CIcon } from "@coreui/icons-react";
 import {
   cibGithub,
+  cibGmail,
   cibInstagram,
   cibLetterboxd,
   cibLinkedin,
@@ -112,8 +113,8 @@ export default function Contact({ theme }: { theme: string }) {
                 <img
                   src={
                     theme === "dark"
-                      ? "../../public/dark-avatar.jpg"
-                      : "../../public/light-avatar.jpg"
+                      ? "./dark-avatar.jpg"
+                      : "./light-avatar.jpg"
                   }
                   alt="System Avatar"
                   className="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-300"
@@ -213,9 +214,7 @@ export default function Contact({ theme }: { theme: string }) {
             {
               name: "Mail",
               url: "mailto:r17e8h@proton.me",
-              icon: (
-                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
-              ),
+              icon: <CIcon icon={cibGmail} />,
             },
             {
               name: "GitHub",
