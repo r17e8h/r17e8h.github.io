@@ -44,7 +44,7 @@ export default function Projects({ theme }: { theme: string }) {
   };
 
   return (
-    <div className="animate-fade-in space-y-8 md:space-y-10 w-full max-w-5xl mx-auto pb-20 pt-8 sm:pt-12 px-2 sm:px-4">
+    <div className="animate-fade-in space-y-8 md:space-y-10 w-full max-w-6xl mx-auto pb-8 pt-8 sm:pt-12 px-2 sm:px-4">
       {/* HEADER SECTION */}
       <div
         className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 p-5 sm:p-8 rounded-2xl border border-[var(--text-color)]/15 backdrop-blur-xl shadow-xl mx-2"

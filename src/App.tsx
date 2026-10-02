@@ -91,7 +91,7 @@ function AppContent({ currentLore, theme, toggleTheme }: any) {
         <Link
           to="/"
           onClick={closeMenu}
-          className="text-2xl font-bold hover:text-[var(--accent)] transition-colors tracking-widest uppercase"
+          className="text-2xl font-bold hover:text-[var(--accent)] transition-colors tracking-widest"
         >
           r17e8h
         </Link>
