@@ -162,7 +162,7 @@ export default function About({ theme }: { theme: string }) {
 
           <div className="mt-6 pt-4 border-t border-[var(--text-color)]/10">
             <a
-              href="https://github.com/r17e8h/dotfiles"
+              href="https://github.com/r17e8h/r17e8h-dotfiles"
               target="_blank"
               rel="noreferrer"
               className="w-full flex justify-between items-center px-4 py-3 border border-[var(--text-color)]/20 rounded hover:border-[var(--accent)] hover:bg-[var(--accent)]/5 transition-all group/btn"
