@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { projectsData } from "../components/Projects/projectsData";
+import { CIcon } from "@coreui/icons-react";
+import { cibGithub, cibGmail, cibLinkedin, cibTwitter } from "@coreui/icons";
 
 export default function Home({ currentLore }: { currentLore: any }) {
   return (
@@ -45,6 +47,7 @@ export default function Home({ currentLore }: { currentLore: any }) {
           Read Full Intel →
         </Link>
       </section>
+
       {/* PROJECTS SECTION */}
       <section
         id="projects"
@@ -115,7 +118,7 @@ export default function Home({ currentLore }: { currentLore: any }) {
         </Link>
       </section>
 
-      {/* CONTACT SECTION */}
+      {/* UPGRADED CONTACT SECTION */}
       <section
         id="contact"
         className="scroll-mt-24 p-6 md:p-10 border border-[var(--text-color)]/10 rounded-2xl backdrop-blur-md shadow-lg"
@@ -124,31 +127,54 @@ export default function Home({ currentLore }: { currentLore: any }) {
         <h2 className="font-heading text-2xl md:text-3xl mb-6 text-[var(--accent)] uppercase font-bold tracking-wide">
           Contacts
         </h2>
-        <div className="flex flex-col sm:flex-row gap-4">
-          <a
-            href="https://github.com/r17e8h"
-            target="_blank"
-            rel="noreferrer"
-            className="border-2 border-current px-6 py-3 hover:bg-[var(--text-color)] hover:text-[var(--card-bg)] transition-colors uppercase text-sm md:text-base text-center font-bold tracking-wide"
+
+        {/* Responsive Grid for Icons */}
+        {/* Responsive Grid for Icons */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-6">
+          {[
+            {
+              name: "GitHub",
+              icon: cibGithub,
+              url: "https://github.com/r17e8h",
+            },
+            {
+              name: "LinkedIn",
+              icon: cibLinkedin,
+              url: "https://linkedin.com/in/r17e8h/",
+            },
+            {
+              name: "X / Twitter",
+              icon: cibTwitter,
+              url: "https://x.com/r17e8h/",
+            },
+            { name: "Email", icon: cibGmail, url: "mailto:r17e8h@proton.me" },
+          ].map((contact) => (
+            <a
+              key={contact.name}
+              href={contact.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group flex flex-col items-center justify-center p-4 rounded-xl border border-[var(--text-color)]/20 bg-transparent hover:border-[var(--accent)] hover:bg-[var(--text-color)]/5 transition-all duration-300 aspect-square"
+            >
+              {/* Added text and fill classes to make icons visible in dark/light mode */}
+              <CIcon
+                icon={contact.icon}
+                className="w-8 h-8 sm:w-10 sm:h-10 mb-3 text-[var(--text-color)] fill-current opacity-70 group-hover:opacity-100 group-hover:text-[var(--accent)] group-hover:-translate-y-1 transition-all duration-300"
+              />
+              <span className="font-mono text-xs sm:text-sm font-bold uppercase tracking-wider opacity-80 group-hover:opacity-100">
+                {contact.name}
+              </span>
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-8">
+          <Link
+            to="/contact"
+            className="text-[var(--accent)] hover:underline uppercase text-sm md:text-base font-bold"
           >
-            GitHub
-          </a>
-          <a
-            href="https://linkedin.com/in/r17e8h/"
-            target="_blank"
-            rel="noreferrer"
-            className="border-2 border-current px-6 py-3 hover:bg-[var(--text-color)] hover:text-[var(--card-bg)] transition-colors uppercase text-sm md:text-base text-center font-bold tracking-wide"
-          >
-            LinkedIn
-          </a>
-          <a
-            href="https://x.com/r17e8h/"
-            target="_blank"
-            rel="noreferrer"
-            className="border-2 border-current px-6 py-3 hover:bg-[var(--text-color)] hover:text-[var(--card-bg)] transition-colors uppercase text-sm md:text-base text-center font-bold tracking-wide"
-          >
-            X / Twitter
-          </a>
+            More Contacts →
+          </Link>
         </div>
       </section>
     </div>

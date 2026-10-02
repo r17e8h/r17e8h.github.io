@@ -7,6 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useTheme } from "./hooks/useTheme";
+import Footer from "./components/Footer";
 
 // Import Pages
 import Home from "./pages/Home";
@@ -180,24 +181,16 @@ function AppContent({ currentLore, theme, toggleTheme }: any) {
       )}
 
       {/* DYNAMIC ROUTING CONTAINER */}
-      <main className="flex-grow flex flex-col w-full max-w-4xl mx-auto px-4 pt-28 pb-16">
+      <main className="grow flex flex-col w-full max-w-4xl mx-auto px-4 pt-28 pb-16">
         <Routes>
           <Route path="/" element={<Home currentLore={currentLore} />} />
-          <Route path="/about" element={<About currentLore={currentLore} />} />
+          <Route path="/about" element={<About theme={theme} />} />
           <Route path="/projects" element={<Projects theme={theme} />} />
-          <Route path="/logs" element={<Logs />} />
+          <Route path="/logs" element={<Logs theme={theme} />} />
           <Route path="/contact" element={<Contact theme={theme} />} />
         </Routes>
       </main>
-
-      <footer
-        className="w-full border-t border-[var(--text-color)]/20 py-8 text-center backdrop-blur-lg mt-auto"
-        style={{ backgroundColor: "var(--nav-bg)" }}
-      >
-        <p className="opacity-70 text-lg uppercase tracking-widest font-bold">
-          © {new Date().getFullYear()} r17e8h. System operational.
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }
