@@ -111,6 +111,7 @@ export default function Contact({ theme }: { theme: string }) {
               {/* Dynamic Image Art */}
               <div className="hidden sm:flex shrink-0 w-32 h-32 md:w-56 md:h-56 rounded-lg overflow-hidden border border-[var(--text-color)]/20 shadow-lg bg-[var(--text-color)]/5">
                 <img
+                  key={theme}
                   src={
                     theme === "dark"
                       ? "./dark-avatar.jpg"
@@ -119,6 +120,16 @@ export default function Contact({ theme }: { theme: string }) {
                   alt="System Avatar"
                   className="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-300"
                 />
+                <div className="hidden pointer-events-none" aria-hidden="true">
+                  <img
+                    src={
+                      theme === "dark"
+                        ? "./light-avatar.jpg"
+                        : "./dark-avatar.jpg"
+                    }
+                    alt="preload opposite theme"
+                  />
+                </div>{" "}
               </div>
 
               <div className="space-y-1">

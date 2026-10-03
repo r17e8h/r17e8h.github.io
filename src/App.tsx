@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import { useTheme } from "./hooks/useTheme";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 
 // Import Pages
 import Home from "./pages/Home";
@@ -18,11 +19,28 @@ import Contact from "./pages/Contact";
 
 export default function App() {
   const { theme, toggleTheme } = useTheme();
+  const [isLoaderMounted, setIsLoaderMounted] = useState(true);
+  const [isExiting, setIsExiting] = useState(false);
+
+  useEffect(() => {
+    const exitTimer = setTimeout(() => {
+      setIsExiting(true);
+    }, 5000);
+
+    const unmountTimer = setTimeout(() => {
+      setIsLoaderMounted(false);
+    }, 5700);
+
+    return () => {
+      clearTimeout(exitTimer);
+      clearTimeout(unmountTimer);
+    };
+  }, []);
+
   const themeLore = {
     dark: {
       quote1: `"If you're always worried about crushing the ants beneath you, you won't be able to walk."`,
-      quote2: `"I guess even if you force back what was lost... It still won't be the
-          way it was."`,
+      quote2: `"I guess even if you force back what was lost... It still won't be the way it was."`,
       description: (
         <>
           Hey, I'm Ritesh. Usually known by the r17e8h handle. Breaking things
@@ -38,7 +56,6 @@ export default function App() {
     light: {
       quote1: `"What does it mean to be strong? I want to find out."`,
       quote2: `"Ippo, you idiot — you think too much. A fist does not need to be philosophical."`,
-
       description: (
         <>
           Hey, I'm Ritesh. Usually known by the r17e8h handle. Breaking things
@@ -57,10 +74,15 @@ export default function App() {
 
   return (
     <>
+      {isLoaderMounted && <Loader isExiting={isExiting} />}
+
       <div className="hidden pointer-events-none" aria-hidden="true">
-        <img src="/ippo-desktop.jpg" alt="preload ippo" />
-        <img src="/guts-desktop.jpg" alt="preload guts" />
+        <img src="/ippo-mobile.jpg" alt="preload ippo" />
+        <img src="/guts-mobile.jpg" alt="preload guts" />
+        <img src="/ippo-desktop.jpg" alt="preload ippo desktop" />
+        <img src="/guts.desktop.jpg" alt="preload guts desktop" />
       </div>
+
       <Router>
         <AppContent
           currentLore={currentLore}
@@ -71,7 +93,6 @@ export default function App() {
     </>
   );
 }
-
 function AppContent({ currentLore, theme, toggleTheme }: any) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
