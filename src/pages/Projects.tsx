@@ -147,6 +147,7 @@ export default function Projects({ theme }: { theme: string }) {
             {/* IMAGE WITH VIEWFINDER OVERLAY */}
             <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-[var(--text-color)]/20 bg-black/10 dark:bg-black/40">
               <img
+                key={theme}
                 src={
                   theme === "dark"
                     ? project.imageDark || "/dark-avatar.png"
@@ -155,6 +156,16 @@ export default function Projects({ theme }: { theme: string }) {
                 alt={project.title}
                 className="w-full h-full object-cover transition-all duration-500 opacity-100 grayscale-0 md:opacity-70 md:grayscale group-hover:grayscale-0 group-hover:opacity-100"
               />
+              <div className="hidden pointer-events-none" aria-hidden="true">
+                <img
+                  src={
+                    theme === "dark"
+                      ? project.imageLight || "/light-avatar.png"
+                      : project.imageDark || "/dark-avatar.png"
+                  }
+                  alt="preload opposite theme"
+                />
+              </div>
 
               {/* Camera UI */}
               <div className="hidden sm:flex absolute top-3 left-3 items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">

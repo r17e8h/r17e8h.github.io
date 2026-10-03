@@ -56,13 +56,19 @@ export default function App() {
   const currentLore = themeLore[theme as keyof typeof themeLore];
 
   return (
-    <Router>
-      <AppContent
-        currentLore={currentLore}
-        theme={theme}
-        toggleTheme={toggleTheme}
-      />
-    </Router>
+    <>
+      <div className="hidden pointer-events-none" aria-hidden="true">
+        <img src="/ippo-desktop.jpg" alt="preload ippo" />
+        <img src="/guts-desktop.jpg" alt="preload guts" />
+      </div>
+      <Router>
+        <AppContent
+          currentLore={currentLore}
+          theme={theme}
+          toggleTheme={toggleTheme}
+        />
+      </Router>
+    </>
   );
 }
 
