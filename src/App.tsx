@@ -81,6 +81,8 @@ export default function App() {
         <img src="/guts-mobile.jpg" alt="preload guts" />
         <img src="/ippo-desktop.jpg" alt="preload ippo desktop" />
         <img src="/guts.desktop.jpg" alt="preload guts desktop" />
+        <img src="/dark-avatar.jpg" alt="preload dark avatar" />
+        <img src="/light-avatar.jpg" alt="preload light avatar" />
       </div>
 
       <Router>

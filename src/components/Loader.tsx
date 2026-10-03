@@ -11,6 +11,7 @@ export default function Loader({ isExiting }: { isExiting: boolean }) {
         muted
         playsInline
         preload="auto"
+        poster="/flower-poster-mobile.jpg"
       >
         <source src="/flower-mobile.mp4" type="video/mp4" />
       </video>
@@ -21,6 +22,7 @@ export default function Loader({ isExiting }: { isExiting: boolean }) {
         muted
         playsInline
         preload="auto"
+        poster="/flower-poster-desktop.jpg"
       >
         <source src="/flower-desktop.mp4" type="video/mp4" />
       </video>
