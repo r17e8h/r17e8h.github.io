@@ -1,10 +1,16 @@
 export default function Loader({ isExiting }: { isExiting: boolean }) {
   return (
     <div
-      className={`fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden transition-transform duration-700 ease-in-out ${
+      style={{ zIndex: 2147483647 }}
+      className={`fixed inset-0 bg-black flex items-center justify-center overflow-hidden transition-transform duration-700 ease-in-out ${
         isExiting ? "-translate-y-full" : "translate-y-0"
       }`}
     >
+      <style>{`
+        #oneko, .oneko { 
+          opacity: 0 !important; 
+        }
+      `}</style>
       <video
         className="w-48 h-48 object-contain block md:hidden"
         autoPlay

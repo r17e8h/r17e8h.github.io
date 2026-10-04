@@ -197,8 +197,8 @@ export default function About({ theme }: { theme: string }) {
                   <span className="text-orange-500">■</span> Strava
                 </h3>
                 <p className="font-mono text-xs sm:text-sm opacity-70 leading-relaxed">
-                  Logging miles and escaping the screen. Running keeps the
-                  system clock synchronized.
+                  Touching grass so I don't lose my mind. Just logging miles and
+                  stepping away from the screen.
                 </p>
                 <a
                   href="https://www.strava.com/athletes/167109767"
@@ -217,7 +217,7 @@ export default function About({ theme }: { theme: string }) {
                   Chess
                 </h3>
                 <p className="font-mono text-xs sm:text-sm opacity-70 leading-relaxed">
-                  Studying historical grandmaster games. Built{" "}
+                  Usually blundering pieces on chess.com. Built{" "}
                   <span className="italic">EnPassant</span> so an engine can
                   play for me when I'm tired. (deployment pending)
                 </p>
@@ -237,8 +237,9 @@ export default function About({ theme }: { theme: string }) {
                   <span className="text-green-500">◈</span> OpenStreetMap
                 </h3>
                 <p className="font-mono text-xs sm:text-sm opacity-70 leading-relaxed">
-                  Contributing spatial data and charting the physical world
-                  using open-source mobile mapping utilities.
+                  Because proprietary maps are garbage. Plotting local nodes and
+                  keeping real-world data open-source as FOSS shouldn't just be
+                  confined to a screen.{" "}
                 </p>
                 <a
                   href="https://www.openstreetmap.org/user/r17e8h"

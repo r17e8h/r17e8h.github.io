@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Footer() {
   const [time, setTime] = useState<string>("");
+  const ringRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const updateClock = () => {
@@ -19,6 +20,19 @@ export default function Footer() {
     const timerId = setInterval(updateClock, 1000);
 
     return () => clearInterval(timerId); // Cleanup on unmount
+  }, []);
+  useEffect(() => {
+    if (!ringRef.current || ringRef.current.hasChildNodes()) return;
+
+    const script = document.createElement("script");
+    script.src = "https://v8v88v8v88.com/interweb/webring/widget.js";
+    script.setAttribute(
+      "data-ring",
+      "https://cdn.jsdelivr.net/gh/v8v88v8v88/interweb@main/webring/sites.json",
+    );
+    script.async = true;
+
+    ringRef.current.appendChild(script);
   }, []);
 
   return (
@@ -43,6 +57,10 @@ export default function Footer() {
         </div>
         <span>Delhi, India &middot; {time || "Loading..."}</span>
       </div>
+      <div
+        ref={ringRef}
+        className="mt-4 scale-90 md:scale-100 transition-transform opacity-80 hover:opacity-100"
+      />
     </footer>
   );
 }
